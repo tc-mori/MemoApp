@@ -1,41 +1,7 @@
-import { View, StyleSheet } from "react-native"
-
-import Header from "../components/Header"
-
-import MemoListItem from "../components/MemoListItem"
-
-import CircleButton from "../components/CircleButton"
+import { Redirect } from "expo-router"
 
 const Index = () => {
-  return (
-    <View style={styles.container}>
-      <Header />
-      <View>
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      <MemoListItem />
-      </View>
-      <CircleButton>+</CircleButton>
-    </View>
-  )
+  return <Redirect href='auth/sign_up' />
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "rgb( 255, 255, 255 )"
-  }
-})
 
 export default Index
