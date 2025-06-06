@@ -1,14 +1,16 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import { router } from 'expo-router'
 import Icon from '../../components/Icon'
 
-import Header from '../../components/Header'
-
 import CircleButton from '../../components/CircleButton'
+
+const handlePress = (): void => {
+    router.push('/memo/edit')
+}
 
 const Detail = () => {
     return (
         <View style={styles.container}>
-            <Header />
             <View style={styles.memoHeader}>
                 <Text style={styles.memoTitle}>買い物リスト</Text>
                 <Text style={styles.memoDate}>2025年6月3日 15:52</Text>
@@ -20,7 +22,7 @@ const Detail = () => {
                     本文用なので使い方を間違えると不自然に見えることもありますので要注意。
                 </Text>
             </ScrollView>
-            <CircleButton style={{ top: 150, bottom: 'auto' }}>
+            <CircleButton onPress={handlePress} style={{ top: 50, bottom: 'auto' }}>
                 <Icon name='pencil' size={40} color='rgb( 255, 255, 255 )' />
             </CircleButton>
         </View>

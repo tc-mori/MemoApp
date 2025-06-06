@@ -1,21 +1,48 @@
-import { View, Text, TextInput, StyleSheet } from "react-native"
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
+
+import { Link, router } from "expo-router"
+import { useState } from "react"
 
 import Button from "../../components/Button"
 
-import Header from "../../components/Header"
+const hanndlePress = (): void => {
+    // 会員登録
+    router.push('/memo/list')
+}
 
 const SignUp = () => {
+     const [email, setEmail] = useState('')
+        const [password, setPassword] = useState('')
     return (
         <View style={styles.container}>
-            <Header />
             <View style={styles.inner}>
-                <Text style={styles.title}>Log In</Text>
-                <TextInput style={styles.input} value="Email address" />
-                <TextInput style={styles.input} value="Password" />
-                <Button label='確定' />
+                <Text style={styles.title}>Sign Up</Text>
+                <TextInput
+                                style={styles.input}
+                                value={email}
+                                onChangeText={(text) => { setEmail(text) }}
+                                autoCapitalize="none"
+                                keyboardType="email-address"
+                                placeholder="Email Address"
+                                textContentType="emailAddress"
+                                />
+                                <TextInput
+                                style={styles.input}
+                                value={password}
+                                onChangeText={(text) => { setPassword(text) }}
+                                autoCapitalize="none"
+                                secureTextEntry
+                                placeholder="Password"
+                                textContentType="password"
+                                />
+                <Button label='確定' onPress={hanndlePress} />
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>アカウントがありませんか？</Text>
+                    <Link href='/auth/log_in' asChild>
+                    <TouchableOpacity>
                     <Text style={styles.footerLink}>ログイン</Text>
+                    </TouchableOpacity>
+                    </Link>
                 </View>
             </View>
         </View>
